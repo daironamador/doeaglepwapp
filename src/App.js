@@ -7,7 +7,7 @@ const RadioPlayer = () => {
   const [playing, setPlaying] = useState(false); // Inicialmente no se reproduce
   const [currentSong, setCurrentSong] = useState({
     title: 'Loading...',
-    image: '/losaimg.jpeg',
+    image: '/icondoeagle.png',
   });
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [isInstalled, setIsInstalled] = useState(false);
@@ -16,14 +16,14 @@ const RadioPlayer = () => {
     const fetchCurrentSong = async () => {
       try {
         const response = await fetch(
-          'https://cast5.asurahosting.com/rpc/losarad2/streaminfo.get'
+          'https://cast5.asurahosting.com/rpc/losarad3/streaminfo.get'
         );
         const data = await response.json();
         const trackData = data.data[0].track;
 
         setCurrentSong({
           title: `${trackData.artist} - ${trackData.title}`,
-          image: '/losaimg.jpeg',
+          image: '/icondoeagle.png',
         });
       } catch (error) {
         console.error('Error fetching current song:', error);
@@ -82,17 +82,17 @@ const RadioPlayer = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen text-white relative">
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/bglosa.png)' }}></div>
+      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/bgdoeagle.png)' }}></div>
       <div className="relative z-10 flex flex-col items-center justify-center h-full">
         <img
           src={currentSong.image}
           alt="Current song"
           className="w-48 h-48 rounded-full mb-4"
         />
-        <h1 className="text-2xl mb-2">LOSA Radio - La más completa</h1>
+        <h1 className="text-2xl mb-2">Do Eagle - La más Romantica</h1>
         <h2 className="text-xl mb-4">{currentSong.title}</h2>
         <ReactHowler
-          src="https://cast5.asurahosting.com/proxy/losarad2/stream"
+          src="https://cast5.asurahosting.com/proxy/losarad3/stream"
           playing={playing}
           html5={true}
           onLoad={() => console.log('Stream loaded successfully')}

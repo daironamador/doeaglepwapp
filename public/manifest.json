@@ -1,10 +1,10 @@
 {
-  "name": "LOSA Radio",
-  "short_name": "LOSA Radio",
+  "name": "Do Eagle",
+  "short_name": "Do Eagle",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
-  "description": "Escucha la radio LOSA en vivo",
+  "description": "Escucha la radio más romantica",
   "icons": [
     {
       "src": "logo192.png",
