@@ -10,6 +10,7 @@
     "react-dom": "^18.3.1",
     "react-howler": "^5.2.0",
     "react-icons": "^5.2.1",
+    "react-router-dom": "^7.11.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.6.0",
@@ -54,5 +55,5 @@
     "postcss": "^8.4.40",
     "tailwindcss": "^3.4.7"
   },
- "homepage": "./"
+  "homepage": "./"
 }
