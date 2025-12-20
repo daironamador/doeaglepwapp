@@ -7,7 +7,7 @@ const Player = () => {
     const [currentSong, setCurrentSong] = useState({
         title: 'Cargando...',
         artist: 'Do Eagle',
-        image: '/icondoeagle.png',
+        image: '/doeagle.jpeg',
     });
     const [deferredPrompt, setDeferredPrompt] = useState(null);
     const [isInstalled, setIsInstalled] = useState(false);
@@ -24,7 +24,7 @@ const Player = () => {
                 setCurrentSong({
                     title: trackData.title || 'Desconocido',
                     artist: trackData.artist || 'Do Eagle',
-                    image: '/icondoeagle.png',
+                    image: '/doeagle.jpeg',
                 });
             } catch (error) {
                 console.error('Error fetching current song:', error);

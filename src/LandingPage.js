@@ -15,7 +15,7 @@ const LandingPage = () => {
             {/* Navbar / Header */}
             <header className="relative z-10 w-full p-6 flex justify-between items-center max-w-7xl mx-auto">
                 <div className="flex items-center gap-3">
-                    <img src="/icondoeagle.png" alt="Logo" className="w-12 h-12 rounded-full shadow-lg border-2 border-white/20" />
+                    <img src="/doeagle.jpeg" alt="Logo" className="w-12 h-12 rounded-full shadow-lg border-2 border-white/20" />
                     <span className="text-xl font-bold tracking-wider">DO EAGLE</span>
                 </div>
 
