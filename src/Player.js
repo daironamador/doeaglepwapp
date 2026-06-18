@@ -184,8 +184,16 @@ const Player = () => {
             </div>
 
             {/* Footer / Branding */}
-            <div className="absolute bottom-6 text-white/30 text-xs font-light z-10 w-full text-center">
-                Streaming Powered by Do Eagle x Dairon Amador
+            <div className="absolute bottom-6 text-white/30 text-xs font-light z-10 w-full text-center flex flex-col items-center gap-1">
+                <span>Streaming Powered by Do Eagle x Dairon Amador</span>
+                <a
+                    href="https://caster.fm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/20 hover:text-white/40 transition-colors"
+                >
+                    Powered by Caster.fm
+                </a>
             </div>
         </div>
     );
