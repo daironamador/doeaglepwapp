@@ -55,15 +55,6 @@ const Player = () => {
         document.title = `${currentSong.title} - ${currentSong.artist}`;
     }, [currentSong]);
 
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = '//cdn.cloud.caster.fm/widgets/embed.js';
-        script.async = true;
-        document.body.appendChild(script);
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
 
     const handleInstallClick = async () => {
         if (deferredPrompt) {
