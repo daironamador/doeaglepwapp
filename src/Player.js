@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ReactHowler from 'react-howler';
-import { FaPlay, FaPause, FaDownload, FaBars, FaTimes, FaGlobe, FaInfoCircle, FaHome } from 'react-icons/fa';
+import { FaDownload, FaBars, FaTimes, FaGlobe, FaInfoCircle, FaHome } from 'react-icons/fa';
 
 const Player = () => {
-    const [playing, setPlaying] = useState(false);
     const [currentSong, setCurrentSong] = useState({
         title: 'Cargando...',
         artist: 'Do Eagle',
@@ -54,21 +52,18 @@ const Player = () => {
     }, []);
 
     useEffect(() => {
-        // Automatically play the music after 3 seconds
-        const timer = setTimeout(() => {
-            setPlaying(true);
-        }, 3000);
-
-        return () => clearTimeout(timer);
-    }, []);
+        document.title = `${currentSong.title} - ${currentSong.artist}`;
+    }, [currentSong]);
 
     useEffect(() => {
-        if (playing) {
-            document.title = `${currentSong.title} - ${currentSong.artist}`;
-        } else {
-            document.title = 'Do Eagle - La más Romantica';
-        }
-    }, [playing, currentSong]);
+        const script = document.createElement('script');
+        script.src = '//cdn.cloud.caster.fm/widgets/embed.js';
+        script.async = true;
+        document.body.appendChild(script);
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
 
     const handleInstallClick = async () => {
         if (deferredPrompt) {
@@ -153,7 +148,7 @@ const Player = () => {
                     <img
                         src={currentSong.image}
                         alt="Album Art"
-                        className={`relative w-48 h-48 rounded-2xl shadow-2xl object-cover transition-transform duration-700 ${playing ? 'scale-100' : 'scale-95 grayscale-[0.2]'}`}
+                        className="relative w-48 h-48 rounded-2xl shadow-2xl object-cover transition-transform duration-700"
                     />
                 </div>
 
@@ -164,19 +159,16 @@ const Player = () => {
                 </div>
 
                 {/* Controls */}
-                <div className="mb-8 flex flex-col items-center">
-                    <ReactHowler
-                        src="https://morcast.caster.fm:16054/nqxp4.m3u"
-                        playing={playing}
-                        html5={true}
+                <div className="mb-8 w-full">
+                    <div
+                        className="cstrEmbed"
+                        data-type="newStreamPlayer"
+                        data-publicToken="772dad0e-231b-43c0-ac62-621c1d76c5e8"
+                        data-theme="dark"
+                        data-color="e81e4d"
+                        data-channelId="a20c9510-5017-42fd-a881-d896f0d80b6a"
+                        data-rendered="false"
                     />
-
-                    <button
-                        className={`w-20 h-20 rounded-full flex items-center justify-center bg-white text-black hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-white/20 ${playing ? 'animate-pulse-slow' : ''}`}
-                        onClick={() => setPlaying(!playing)}
-                    >
-                        {playing ? <FaPause className="text-3xl" /> : <FaPlay className="text-3xl ml-1" />}
-                    </button>
                 </div>
 
                 {/* Install Button (Conditional) */}
