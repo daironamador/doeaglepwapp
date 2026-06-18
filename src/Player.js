@@ -166,7 +166,7 @@ const Player = () => {
                 {/* Controls */}
                 <div className="mb-8 flex flex-col items-center">
                     <ReactHowler
-                        src="https://morcast.caster.fm:16054/nqxp4"
+                        src="https://morcast.caster.fm:16054/nqxp4.m3u"
                         playing={playing}
                         html5={true}
                     />
