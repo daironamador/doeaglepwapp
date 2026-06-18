@@ -166,7 +166,7 @@ const Player = () => {
                 {/* Controls */}
                 <div className="mb-8 flex flex-col items-center">
                     <ReactHowler
-                        src="https://cast5.asurahosting.com/proxy/losarad3/stream"
+                        src="https://morcast.caster.fm:16054/nqxp4"
                         playing={playing}
                         html5={true}
                     />
