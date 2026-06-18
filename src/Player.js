@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaPlay, FaPause, FaDownload, FaBars, FaTimes, FaGlobe, FaInfoCircle, FaHome } from 'react-icons/fa';
 
+const STREAM_URL = 'https://morcast.caster.fm:16054/nqxp4';
+
 const Player = () => {
+    const audioRef = useRef(null);
     const [playing, setPlaying] = useState(false);
     const [currentSong, setCurrentSong] = useState({
         title: 'Cargando...',
@@ -66,17 +69,14 @@ const Player = () => {
 
 
     const togglePlay = () => {
-        const newPlaying = !playing;
-        setPlaying(newPlaying);
-
-        // Try Caster.fm JS API first, then fall back to clicking the hidden embed button
-        if (window.cstrPlayer) {
-            newPlaying ? window.cstrPlayer.play() : window.cstrPlayer.pause();
+        const audio = audioRef.current;
+        if (!audio) return;
+        if (playing) {
+            audio.pause();
         } else {
-            const embed = document.getElementById('caster-embed');
-            const btn = embed && embed.querySelector('button');
-            if (btn) btn.click();
+            audio.play();
         }
+        setPlaying(!playing);
     };
 
     const handleInstallClick = async () => {
@@ -172,21 +172,9 @@ const Player = () => {
                     <p className="text-lg text-white/70 font-medium truncate">{currentSong.artist}</p>
                 </div>
 
-                {/* Hidden Caster.fm embed — handles audio */}
-                <div id="caster-embed" style={{ position: 'absolute', left: '-9999px', top: '-9999px', width: '300px', height: '80px' }}>
-                    <div
-                        className="cstrEmbed"
-                        data-type="newStreamPlayer"
-                        data-publicToken="772dad0e-231b-43c0-ac62-621c1d76c5e8"
-                        data-theme="dark"
-                        data-color="e81e4d"
-                        data-channelId="a20c9510-5017-42fd-a881-d896f0d80b6a"
-                        data-rendered="false"
-                    />
-                </div>
-
                 {/* Controls */}
                 <div className="mb-8 flex flex-col items-center">
+                    <audio ref={audioRef} src={STREAM_URL} preload="none" />
                     <button
                         className={`w-20 h-20 rounded-full flex items-center justify-center bg-white text-black hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-white/20 ${playing ? 'animate-pulse-slow' : ''}`}
                         onClick={togglePlay}
