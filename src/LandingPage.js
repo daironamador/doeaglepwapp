@@ -20,7 +20,7 @@ const LandingPage = () => {
                 </div>
 
                 <nav className="hidden md:flex gap-8 text-sm font-medium text-white/80">
-                    <a href="#" className="hover:text-white transition-colors">Inicio</a>
+                    <button className="hover:text-white transition-colors bg-transparent border-0 p-0 cursor-pointer">Inicio</button>
                     <a href="#about" className="hover:text-white transition-colors">Nosotros</a>
                     <a href="https://doeagleradio.com" className="hover:text-white transition-colors">Noticias</a>
                 </nav>
