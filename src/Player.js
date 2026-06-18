@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaPlay, FaPause, FaDownload, FaBars, FaTimes, FaGlobe, FaInfoCircle, FaHome } from 'react-icons/fa';
 
-const STREAM_URL = 'https://morcast.caster.fm:16054/nqxp4';
+const STREAM_URL = 'https://morcast.caster.fm:16054/nqxp4?token=37a504f84e01560ded3fb033296116e3';
 
 const Player = () => {
     const audioRef = useRef(null);
