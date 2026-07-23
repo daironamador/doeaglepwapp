@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaPlay, FaPause, FaDownload, FaBars, FaTimes, FaGlobe, FaInfoCircle, FaHome } from 'react-icons/fa';
 
-const STREAM_URL = 'https://losaradio.dpdns.org/listen/do_eagle_radio/radio.mp3';
+const STREAM_URL = 'https://ac.losaradio.dpdns.org/listen/do_eagle_radio/radio.mp3';
 
 const Player = () => {
     const audioRef = useRef(null);
@@ -137,7 +137,7 @@ const Player = () => {
                     </div>
 
                     <a
-                        href="https:doeagleradio.com"
+                        href="https://doeagleradio.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-4 text-xl text-white/80 hover:text-white hover:scale-105 transition-all text-left w-full pl-8"
@@ -176,7 +176,7 @@ const Player = () => {
                 <div className="mb-8 flex flex-col items-center">
                     <audio ref={audioRef} src={STREAM_URL} preload="none" />
                     <button
-                        className={`w-20 h-20 rounded-full flex items-center justify-center bg-white text-black hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-white/20 ${playing ? 'animate-pulse-slow' : ''}`}
+                        className={`w-20 h-20 rounded-full flex items-center justify-center bg-white text-black hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-white/20`}
                         onClick={togglePlay}
                     >
                         {playing ? <FaPause className="text-3xl" /> : <FaPlay className="text-3xl ml-1" />}
